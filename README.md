@@ -18,15 +18,19 @@ Na primeira linha de HTML da prateleira adicionei o código desta forma (mudando
 	</div>
 ```
 
+* A div com a classe "noscript" foi necessária para resolver um problema de comátibilidade no navegador Edge
+* A tag <noscript> renderiza seu contéudo apenas se o javascript estiver desativado. Funcionando como alternativa se algum navegador estiver com o javascript desabilitado. Neste caso, o código do "lazy load" não será executado.
+* O "#" dentro do noscript foi inserido propositalmente para quebrar o html, a imagem estava sendo carregada no DOM. No navegador Google Chrome
+
 Na primeira DIV que envolve o produto eu adicionei a classe "_lazy", desta forma:
 
 ```	<div class="_lazy product" id="shelf-item-$sku" pid="$id" psku="$sku">
 ```
 
-* A div com a classe "noscript" foi necessária para resolver um problema de comátibilidade no navegador Edge
-* A tag <noscript> renderiza seu contéudo apenas se o javascript estiver desativado. Funcionando como alternativa se algum navegador estiver com o javascript desabilitado. Neste caso, o código do "lazy load" não será executado.
-* O "#" dentro do noscript foi inserido propositalmente para quebrar o html, a imagem estava sendo carregada no DOM. No navegador Google Chrome
+A imagem base do produto deve receber o caminho do fallback (no meu caso .gif), desta forma:
 
+```	 <img src="[URl da imagem]" width="222" height="171" style="opacity:0" />
+```
 ### Adicionando os scripts
 
 Precisamos "chamar" os dois scripts.
